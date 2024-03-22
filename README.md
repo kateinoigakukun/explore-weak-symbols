@@ -8,6 +8,16 @@ This project consists of several files.
 - `gc.c` implements `GC_Init`, prints out some text.
 - `rubygc.c` also implements `GC_Init` prints out some different text.
 
+## Building
+
+Here is how to get all the artifacts required for these tests
+
+1. Build the object files: `make gc.o && make main.o`
+1. Build and link the main binary: `make main`
+1. Build the dynamic gc library: `make libgc.so`
+1. Build the static gc library and link into a binary: `make main-all-static`
+1. Pre-load dynamic library and then run either executable: `LD_PRELOAD=(pwd)/libgc.so ./main`
+
 ## Desired behaviour
 
 When a binary `main` is built by linking `gc.o` and `main.o` I expect the symbol
