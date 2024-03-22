@@ -4,5 +4,9 @@
 int
 main(int argc, char **argv)
 {
-    GC_Init();
+    if (GC_Init) {
+        GC_Init();
+    } else {
+        GC_Init_default();
+    }
 }
