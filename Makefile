@@ -22,3 +22,10 @@ main-all-static: $(OBJS) rubygc.o
 .PHONY: clean
 clean:
 	rm -rf *.so *.o main main-all-static
+
+.PHONY: check
+check: main libgc.so
+	@echo "Running with default GC"
+	./main
+	@echo "\nRunning with custom GC"
+	RUBY_GC_LIB=./libgc.so ./main
